@@ -1,7 +1,9 @@
 import { DynamicModule, Module } from "@nestjs/common";
 
 export interface ReplayLabOptions {
-  // TODO: define config options (captureAll, volatileFields, storage, etc.)
+  /** Capture every request, not just errors. Defaults to false (5xx only). */
+  captureAll?: boolean;
+  // TODO: volatileFields, storage adapter
 }
 
 @Module({})

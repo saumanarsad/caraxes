@@ -12,8 +12,11 @@ export interface CapturedCase {
   capturedAt: Date;
 }
 
+// The id is assigned by the storage layer, so callers omit it.
+export type NewCase = Omit<CapturedCase, 'id'>;
+
 export interface ReplayLabStorage {
-  saveCase(capturedCase: CapturedCase): Promise<string>;
+  saveCase(newCase: NewCase): Promise<string>;
   getCase(id: string): Promise<CapturedCase | null>;
   listCases(): Promise<CapturedCase[]>;
 }

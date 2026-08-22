@@ -1,12 +1,12 @@
 import { randomUUID } from 'crypto';
-import { CapturedCase, ReplayLabStorage } from './storage.interface';
+import { CapturedCase, NewCase, ReplayLabStorage } from './storage.interface';
 
 export class InMemoryStorage implements ReplayLabStorage {
   private readonly cases = new Map<string, CapturedCase>();
 
-  async saveCase(capturedCase: CapturedCase): Promise<string> {
+  async saveCase(newCase: NewCase): Promise<string> {
     const id = randomUUID();
-    this.cases.set(id, { ...capturedCase, id });
+    this.cases.set(id, { ...newCase, id });
     return id;
   }
 

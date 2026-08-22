@@ -1,0 +1,2 @@
+export const REPLAYLAB_STORAGE = Symbol('REPLAYLAB_STORAGE');
+export const REPLAYLAB_OPTIONS = Symbol('REPLAYLAB_OPTIONS');

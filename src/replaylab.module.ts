@@ -1,5 +1,6 @@
 import { DynamicModule, Module } from "@nestjs/common";
 import { APP_INTERCEPTOR } from "@nestjs/core";
+import { ReplayLabDashboardController } from "./api/replaylab-dashboard.controller";
 import { ReplayLabController } from "./api/replaylab.controller";
 import { REPLAYLAB_OPTIONS, REPLAYLAB_STORAGE } from "./constants";
 import { CaptureInterceptor } from "./interceptor/capture.interceptor";
@@ -16,7 +17,7 @@ export class ReplayLabModule {
   static forRoot(options: ReplayLabOptions = {}): DynamicModule {
     return {
       module: ReplayLabModule,
-      controllers: [ReplayLabController],
+      controllers: [ReplayLabController, ReplayLabDashboardController],
       providers: [
         {
           provide: REPLAYLAB_OPTIONS,

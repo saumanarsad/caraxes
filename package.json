@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && mkdir -p dist/dashboard && cp -r src/dashboard/static dist/dashboard/",
     "build:watch": "tsc --watch",
     "test": "jest",
     "test:e2e": "jest --config jest.e2e.config.js",

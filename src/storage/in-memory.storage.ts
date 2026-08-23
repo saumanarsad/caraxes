@@ -7,6 +7,10 @@ export class InMemoryStorage implements ReplayLabStorage {
   async saveCase(newCase: NewCase): Promise<string> {
     const id = randomUUID();
     this.cases.set(id, { ...newCase, id });
+    // TODO: Remove this debug log after e2e testing
+    console.log(
+      `[ReplayLab] Case saved: ${newCase.method} ${newCase.url} (${newCase.responseStatus})`
+    );
     return id;
   }
 
